@@ -13,7 +13,7 @@ namespace AVLTree.Tests
         public void Add_SingleElement_InEmptyTree()
         {
             // Arrange
-            var tree = new Tree<int>();
+            var tree = new AVLTree<int>();
             int element = 0;
 
             // Act
@@ -30,11 +30,11 @@ namespace AVLTree.Tests
         {
             // Arrange
             int count = (int)1e5;
-            var tree = new Tree<int>();
+            var tree = new AVLTree<int>();
             var rnd = new Random();
 
             // Act
-            for(int i = 0; i < count; ++i)
+            for (int i = 0; i < count; ++i)
             {
                 tree.Add(rnd.Next(-100, 100));
                 Assert.True(tree.Height <= tree.Count.GetUpperHeightBound());
@@ -46,14 +46,14 @@ namespace AVLTree.Tests
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 3, 4, 5, 6})]
+        [InlineData(new int[] { 1, 2, 3, 4, 5, 6 })]
         [InlineData(new int[] { 2, 4, -13, 123 })]
         [InlineData(new int[] { 1, 1, 1, 1, 1 })]
-        [InlineData(new int[] { 4, 5, 7, 2, 1, 3, 6})]
+        [InlineData(new int[] { 4, 5, 7, 2, 1, 3, 6 })]
         public void Add_Collection(int[] collection)
         {
             // Arrange
-            var tree = new Tree<int>(collection);
+            var tree = new AVLTree<int>(collection);
 
             // Assert
             Assert.All(collection, value => tree.Contains(value));
@@ -66,7 +66,7 @@ namespace AVLTree.Tests
         {
             // Arrange
             var collection = new string[] { "abc", "cde", "rwtwe", "123", "" };
-            var tree = new Tree<string>(collection);
+            var tree = new AVLTree<string>(collection);
 
             // Act
             var list = tree.ToList();
@@ -82,7 +82,7 @@ namespace AVLTree.Tests
         public void Remove_FromEmptyTree()
         {
             // Arrange
-            var tree = new Tree<int>();
+            var tree = new AVLTree<int>();
             int element = 0;
 
             // Act
@@ -98,7 +98,7 @@ namespace AVLTree.Tests
         public void Remove_ExistingElement()
         {
             // Arrange
-            var tree = new Tree<int>();
+            var tree = new AVLTree<int>();
             int element = 0;
             tree.Add(element);
 
@@ -116,7 +116,7 @@ namespace AVLTree.Tests
         {
             // Arrange
             var collection = new int[] { 1, -123, 234542, 231, -52, 293 };
-            var tree = new Tree<int>(collection);
+            var tree = new AVLTree<int>(collection);
 
             // Act
             var treeMin = tree.Min;

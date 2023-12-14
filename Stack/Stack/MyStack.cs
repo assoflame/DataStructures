@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Stack
+﻿namespace Stack
 {
     internal class Node<T>
     {
@@ -34,10 +28,11 @@ namespace Stack
         {
             var newNode = new Node<T>(value);
 
-            if(_head is null)
+            if (_head is null)
             {
                 _head = newNode;
-            } else
+            }
+            else
             {
                 newNode.Next = _head;
                 _head = newNode;

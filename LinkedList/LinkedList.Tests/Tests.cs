@@ -1,8 +1,6 @@
-﻿using Xunit;
-
-namespace LinkedList.Tests
+﻿namespace LinkedList.Tests
 {
-    public class LinkedListTests
+    public class Tests
     {
         [Fact]
         public void PushBegin_FirstElement()
@@ -41,7 +39,7 @@ namespace LinkedList.Tests
         {
             // Arrange
             var collection = new int[] { 1, 2, 3, 4, 5 };
-            var list = new LinkedList<int>(); 
+            var list = new LinkedList<int>();
 
             // Act
             foreach (var value in collection)    // list: 5 <-> 4 <-> 3 <-> 2 <-> 1

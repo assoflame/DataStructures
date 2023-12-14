@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace AVLTree
 {
@@ -39,7 +34,7 @@ namespace AVLTree
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
-    public class Tree<T> : IEnumerable<T>
+    public class AVLTree<T> : IEnumerable<T>
         where T : IComparable
     {
         private TreeNode<T>? _root;
@@ -48,9 +43,9 @@ namespace AVLTree
         public T Min => GetMin(_root).Data;
         public T Max => GetMax(_root).Data;
 
-        public Tree() { }
-        public Tree(T data) => _root = new TreeNode<T>(data);
-        public Tree(IEnumerable<T> values)
+        public AVLTree() { }
+        public AVLTree(T data) => _root = new TreeNode<T>(data);
+        public AVLTree(IEnumerable<T> values)
         {
             foreach (var value in values)
                 Add(value);
@@ -99,12 +94,13 @@ namespace AVLTree
 
             var difference = GetDifference(node);
 
-            if(difference == 2)
+            if (difference == 2)
             {
                 if (GetDifference(node.Right) < 0)
                     node.Right = RotateRight(node.Right);
                 return RotateLeft(node);
-            } else if(difference == -2)
+            }
+            else if (difference == -2)
             {
                 if (GetDifference(node.Left) > 0)
                     node.Left = RotateLeft(node.Left);

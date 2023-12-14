@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace LinkedList
 {
@@ -47,7 +42,7 @@ namespace LinkedList
 
         public LinkedList(IEnumerable<T> values)
         {
-            foreach(var value in values)
+            foreach (var value in values)
                 PushEnd(value);
         }
 
@@ -58,7 +53,8 @@ namespace LinkedList
             {
                 _begin = newNode;
                 _end = newNode;
-            } else
+            }
+            else
             {
                 _end.Next = newNode;
                 newNode.Prev = _end;
@@ -91,7 +87,7 @@ namespace LinkedList
             if (_begin is null)
                 throw new InvalidOperationException("List is empty");
 
-            if(_begin == _end)
+            if (_begin == _end)
                 _begin = _end = null;
 
             _end = _end.Prev;
@@ -127,7 +123,7 @@ namespace LinkedList
         {
             var currentNode = _begin;
 
-            while(currentNode is not null)
+            while (currentNode is not null)
             {
                 yield return currentNode.Data;
                 currentNode = currentNode.Next;

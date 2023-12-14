@@ -1,5 +1,4 @@
 ﻿using Tree;
-using Xunit;
 
 namespace BST.Tests
 {
@@ -28,7 +27,7 @@ namespace BST.Tests
             var values = new int[] { 1, 2, 3 };
 
             // Act
-            foreach(var value in values)
+            foreach (var value in values)
                 tree.Add(value);
 
             // Arrange

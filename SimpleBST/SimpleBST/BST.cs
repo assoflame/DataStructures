@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace Tree
 {
@@ -62,7 +57,7 @@ namespace Tree
         {
             var newNode = new Node<T>(key);
             ++Count;
-            if(_root is null)
+            if (_root is null)
             {
                 _root = newNode;
                 return;
@@ -70,7 +65,7 @@ namespace Tree
 
             var parent = _root;
             var child = key.CompareTo(parent.Data) < 0 ? parent.Left : parent.Right;
-            while(child is not null)
+            while (child is not null)
             {
                 parent = child;
                 child = key.CompareTo(parent.Data) < 0 ? parent.Left : parent.Right;
@@ -90,7 +85,7 @@ namespace Tree
 
             var currentNode = _root;
 
-            if(key.CompareTo(currentNode.Data) == 0)
+            if (key.CompareTo(currentNode.Data) == 0)
             {
                 --Count;
                 if (_root.Right is null)
@@ -107,7 +102,7 @@ namespace Tree
             if (pairForRemove.nodeToRemove is null) return;
 
             --Count;
-            if(pairForRemove.nodeToRemove.Right is null)
+            if (pairForRemove.nodeToRemove.Right is null)
             {
                 if (pairForRemove.parent.Right == pairForRemove.nodeToRemove)
                     pairForRemove.parent.Right = pairForRemove.nodeToRemove.Left;
@@ -119,12 +114,12 @@ namespace Tree
             ChangeOnRightTreeMin(pairForRemove.nodeToRemove);
         }
 
-        private (Node<T>? parent, Node<T>? nodeToRemove) GetNodeForRemove(Node<T> root, T key) 
+        private (Node<T>? parent, Node<T>? nodeToRemove) GetNodeForRemove(Node<T> root, T key)
         {
             var parent = root;
             var child = key.CompareTo(parent.Data) < 0 ? parent.Left : parent.Right;
 
-            while(child is not null && key.CompareTo(child.Data) != 0)
+            while (child is not null && key.CompareTo(child.Data) != 0)
             {
                 parent = child;
                 child = key.CompareTo(parent.Data) < 0 ? parent.Left : parent.Right;
@@ -139,14 +134,14 @@ namespace Tree
         private void ChangeOnRightTreeMin(Node<T> node)
         {
             var ptr = node.Right;
-            if(ptr.Left is null)
+            if (ptr.Left is null)
             {
                 node.Data = ptr.Data;
                 node.Right = ptr.Right;
                 return;
             }
-            
-            while(ptr.Left.Left is not null)
+
+            while (ptr.Left.Left is not null)
                 ptr = ptr.Left;
 
             var minParent = ptr;
@@ -166,7 +161,7 @@ namespace Tree
 
             var currentNode = _root;
 
-            while(currentNode is not null && key.CompareTo(currentNode.Data) != 0)
+            while (currentNode is not null && key.CompareTo(currentNode.Data) != 0)
             {
                 currentNode = key.CompareTo(currentNode.Data) < 0
                     ? currentNode.Left

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Queue
+﻿namespace Queue
 {
     internal class Node<T>
     {
@@ -40,10 +34,11 @@ namespace Queue
         public void Enqueue(T value)
         {
             var newNode = new Node<T>(value);
-            if(_last is null)
+            if (_last is null)
             {
                 _first = _last = newNode;
-            } else
+            }
+            else
             {
                 _last.Next = newNode;
                 _last = _last.Next;
@@ -58,10 +53,11 @@ namespace Queue
                 throw new InvalidOperationException("Queue is empty");
 
             var node = _first;
-            if(_first == _last)
+            if (_first == _last)
             {
                 _first = _last = null;
-            } else
+            }
+            else
             {
                 _first = _first.Next;
             }

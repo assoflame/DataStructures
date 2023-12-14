@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace Queue.Tests
+﻿namespace Queue.Tests
 {
-    public class QueueTests
+    public class Tests
     {
         [Fact]
         public void Enqueue_OneElement_InEmptyQueue()
@@ -37,7 +30,7 @@ namespace Queue.Tests
 
             // Assert
             Assert.Equal(values.Length, que.Count);
-            for(int i = 0; i < values.Length; ++i)
+            for (int i = 0; i < values.Length; ++i)
             {
                 Assert.Equal(values[i], que.Peek);
                 que.Dequeue();
@@ -49,7 +42,7 @@ namespace Queue.Tests
         {
             // Arrange
             var que = new MyQueue<int>();
-            
+
             // Assert
             Assert.Throws<InvalidOperationException>(() => que.Dequeue());
         }

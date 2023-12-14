@@ -2,7 +2,7 @@
 
 namespace Stack.Tests
 {
-    public class StackTests
+    public class Tests
     {
         [Fact]
         public void Push_InEmptyStack()
