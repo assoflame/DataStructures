@@ -14,8 +14,6 @@
             Build(numbers, 0, 0, size);
         }
 
-        private SegmentTree() { }
-
         private void Build(List<long> numbers, int x, int lx, int rx)
         {
             if (rx - lx == 1)
